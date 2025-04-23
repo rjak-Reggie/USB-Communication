@@ -1,20 +1,54 @@
-# USB-Communication
-communication over USB with Arduino UNO board
-The requirements for this program are a laptop and a microcontroller.
-Both Arduino IDE and Visual Studio need to be installed on the computer.
+Arduino Communication with Visual Studio (C++) 
+Overview
+This project involves using Visual Studio to communicate between a PC and an Arduino microcontroller. The program allows you to send mathematical equations (eg, 34 *74) from the PC to the microcontroller, which performs calculations. The results are then saved to a text file.
 
-The board must be connected to the PC, and the microcontroller must be uploaded with the code microcontroller_code in the Arduino IDE.
-This code will enable communication between the PC and the microcontroller.
+Requirements
+Arduino IDE installed
 
-The C++ program in Visual Studio should be built and run under the name calpart1,3.
+Visual Studio installed
 
-The program will search for the Arduino board by pinging every port and waiting for a reply from the microcontroller.
+Arduino microcontroller
 
-Once the port is detected, the program will prompt the user to input equations. The microcontroller will process the equations, output the results, and the PC application will store the results.
+Instructions
+1. Connect the Arduino board to the PC.
+   
+2. Upload the Arduino Program to the Microcontroller
+Compile and upload the Arduino program to the microcontroller using the Arduino IDE.
+The program must be installed on the microcontroller before it can communicate with the PC.
 
-All communication between the microcontroller and the PC is logged in the Arduino_log, and the results are saved under Arduino_results.
-If the Serial Monitor is open in the Arduino IDE, Visual Studio cannot communicate with the Arduino board.
+3. Build the Visual Studio Program under the name Calpart1,3.
+Once the program in Visual Studio is built, it will automatically detect the port to which the Arduino is connected.
 
-If the port cannot be detected, increasing the sleep time in the PC application will increase the chance of the Arduino microcontroller responding to the query.
+4. Ping the Microcontroller
+The program will send a "hello" message to the microcontroller and wait for a response.
 
+If the microcontroller responds, the laptop will detect and capture the corresponding port.
 
+5. Increase Sleep Time if No Response
+If the program doesn't receive a response from the microcontroller, increase the sleep time to give more time for the communication to be established.
+
+6. Establish Connection and Input Equations
+Once the connection is successfully established, the program will prompt the user to input a mathematical equation.
+
+The program supports basic arithmetic operations: addition, subtraction, multiplication, and division.
+
+Only natural numbers (integers) are allowed as input (no decimals), but the result may be a decimal.
+
+7. Enter Two Equations
+The program will ask the user to input two equations.
+
+Both equations will be calculated on the microcontroller.
+
+8. Save Results
+The results of both calculations will be saved in a text file.
+
+An Arduino log file will also be generated, containing the full sequence of communication between the microcontroller and the PC.
+
+File Structure
+ArduinoProgram.ino - Arduino code to upload to the microcontroller.
+
+VisualStudioProgram - Source code for the Visual Studio application.
+
+output.txt - File where calculation results are saved.
+
+ArduinoLog.txt - Log file capturing the communication sequence.
